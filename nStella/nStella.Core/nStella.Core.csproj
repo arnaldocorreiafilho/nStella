@@ -52,6 +52,7 @@
     <Compile Include="SimpleMessageProducer.cs" />
     <Compile Include="SimpleValidationMessage.cs" />
     <Compile Include="Validation\IInvalidValue.cs" />
+    <Compile Include="Validation\IValidator.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
