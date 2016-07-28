@@ -43,7 +43,7 @@
     <Compile Include="DigitoGenerator.cs" />
     <Compile Include="IMessageProducer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValidationMessage.cs" />
+    <Compile Include="IValidationMessage.cs" />
     <Compile Include="Validation\IInvalidValue.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
