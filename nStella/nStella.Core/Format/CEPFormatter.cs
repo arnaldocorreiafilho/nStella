@@ -13,24 +13,29 @@ namespace nStella.Core.Format
         public static readonly Regex UNFORMATED = new Regex("(\\d{5})(\\d{3})");
         private readonly BaseFormatter baseFormatter;
 
+        public CEPFormatter()
+        {
+            baseFormatter = new BaseFormatter(FORMATED, "$1-$2", UNFORMATED, "$1$2");
+        }
+
         public bool CanBeFormatted(string value)
         {
-            throw new NotImplementedException();
+            return baseFormatter.CanBeFormatted(value);
         }
 
         public string Format(string value)
         {
-            throw new NotImplementedException();
+            return baseFormatter.Format(value);
         }
 
         public bool IsFormatted(string value)
         {
-            throw new NotImplementedException();
+            return baseFormatter.IsFormatted(value);
         }
 
         public string UnFormat(string value)
         {
-            throw new NotImplementedException();
+            return baseFormatter.UnFormat(value);
         }
     }
 }
