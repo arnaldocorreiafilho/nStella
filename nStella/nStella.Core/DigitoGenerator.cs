@@ -9,7 +9,7 @@ namespace nStella.Core
     public class DigitoGenerator
     {
         private static readonly Random RANDOM = new Random();
-        public string generate(int quantidade)
+        public string Generate(int quantidade)
         {
             StringBuilder digitos = new StringBuilder();
 
