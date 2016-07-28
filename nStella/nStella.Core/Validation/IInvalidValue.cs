@@ -8,6 +8,6 @@ namespace nStella.Core.Validation
 {
     public interface IInvalidValue
     {
-        string Name();
+        string Name();        
     }
 }
