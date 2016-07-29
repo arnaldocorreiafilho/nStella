@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Formatter\CEPFormatterTest.cs" />
     <Compile Include="DigitoParaTest.cs" />
+    <Compile Include="Formatter\CNPJFormatterTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleMessageProducerTest.cs" />
   </ItemGroup>
