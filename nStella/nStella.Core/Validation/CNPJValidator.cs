@@ -1,10 +1,8 @@
-﻿using nStella.Core.Validation.Error;
+﻿using nStella.Core.Format;
+using nStella.Core.Validation.Error;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace nStella.Core.Validation
 {
@@ -53,7 +51,7 @@ namespace nStella.Core.Validation
                 string unformatedCNPJ = null;
                 try
                 {
-                    unformatedCNPJ = new CNPJFormatter().unformat(cnpj);
+                    unformatedCNPJ = new CNPJFormatter().UnFormat(cnpj);
                 }
                 catch (ArgumentException e)
                 {
@@ -61,44 +59,75 @@ namespace nStella.Core.Validation
                     return errors;
                 }
 
-                if (unformatedCNPJ.length() != 14 || !unformatedCNPJ.matches("[0-9]*"))
+                var regxUnFormatedCNPJ = new Regex("[0 - 9]*");
+
+                if (unformatedCNPJ.Length != 14 || !regxUnFormatedCNPJ.IsMatch(unformatedCNPJ))
                 {
-                    errors.add(messageProducer.getMessage(CNPJError.INVALID_DIGITS));
+                    errors.Add(messageProducer.GetMessage(new CNPJError(CNPJErrorEnum.INVALID_DIGITS)));
                 }
 
-                String cnpjSemDigito = unformatedCNPJ.substring(0, unformatedCNPJ.length() - 2);
-                String digitos = unformatedCNPJ.substring(unformatedCNPJ.length() - 2);
+                string cnpjSemDigito = unformatedCNPJ.Substring(0, unformatedCNPJ.Length - 2);
+                string digitos = unformatedCNPJ.Substring(unformatedCNPJ.Length - 2);
 
-                String digitosCalculados = calculaDigitos(cnpjSemDigito);
+                string digitosCalculados = CalculaDigitos(cnpjSemDigito);
 
-                if (!digitos.equals(digitosCalculados))
+                if (!digitos.Equals(digitosCalculados))
                 {
-                    errors.add(messageProducer.getMessage(CNPJError.INVALID_CHECK_DIGITS));
+                    errors.Add(messageProducer.GetMessage(new CNPJError(CNPJErrorEnum.INVALID_CHECK_DIGITS));
                 }
 
             }
             return errors;
         }
 
-
-        public void AssertValid(string Object)
+        private string CalculaDigitos(string cnpjSemDigito)
         {
-            throw new NotImplementedException();
+            DigitoPara digitoPara = new DigitoPara(cnpjSemDigito);
+            digitoPara.ComplementarAoModulo().TrocandoPorSeEncontrar("0", 10, 11).Mod(11);
+            string digito1 = digitoPara.Calcula();
+            digitoPara.AddDigito(digito1);
+            string digito2 = digitoPara.Calcula();
+
+            return digito1 + digito2;
+
+        }
+
+        public void AssertValid(string cnpj)
+        {
+            IList<IValidationMessage> errors = GetInvalidValues(cnpj);
+            if (!(errors.Count == 0))
+                throw new InvalidStateException(errors);
         }
 
         public string GenerateRandomValid()
         {
-            throw new NotImplementedException();
+            string cnpjSemDigito = new DigitoGenerator().Generate(12);
+            string cnpjComDigito = cnpjSemDigito + CalculaDigitos(cnpjSemDigito);
+
+            if (isFormatted)
+            {
+                return new CNPJFormatter().Format(cnpjComDigito);
+            }
+            return cnpjComDigito;
         }
 
-        public List<IValidationMessage> InvalidMessageFor(string Object)
+        public IList<IValidationMessage> InvalidMessageFor(string cnpj)
         {
-            throw new NotImplementedException();
+            return GetInvalidValues(cnpj);
         }
 
-        public bool IsEligible(string Object)
+        public bool IsEligible(string value)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(value))
+                return false;
+
+            bool result;
+            if (isFormatted)
+                result = FORMATED.IsMatch(value);
+            else
+                result = UNFORMATED.IsMatch(value);
+
+            return result;
         }
     }
 }

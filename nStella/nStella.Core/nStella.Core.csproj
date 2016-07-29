@@ -55,6 +55,7 @@
     <Compile Include="Validation\CNPJValidator.cs" />
     <Compile Include="Validation\Error\CNPJError.cs" />
     <Compile Include="Validation\IInvalidValue.cs" />
+    <Compile Include="Validation\InvalidStateException.cs" />
     <Compile Include="Validation\IValidator.cs" />
   </ItemGroup>
   <ItemGroup />
