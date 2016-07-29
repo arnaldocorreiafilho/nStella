@@ -28,7 +28,7 @@ namespace nStella.Core
             ComMultiplicadoresDeAte(2, 9);
             Mod(11);
             substituicoes = new Dictionary<int, string>();
-
+            numero = new LinkedList<int>();
             char[] digitos = trecho.ToCharArray();
             foreach (char digito in digitos)
             {

@@ -73,7 +73,7 @@ namespace nStella.Core.Validation
 
                 if (!digitos.Equals(digitosCalculados))
                 {
-                    errors.Add(messageProducer.GetMessage(new CNPJError(CNPJErrorEnum.INVALID_CHECK_DIGITS));
+                    errors.Add(messageProducer.GetMessage(new CNPJError(CNPJErrorEnum.INVALID_CHECK_DIGITS)));
                 }
 
             }

@@ -22,6 +22,6 @@ namespace nStella.Core.Validation.Error
 
     public enum CNPJErrorEnum
     {
-        INVALID_CHECK_DIGITS, INVALID_DIGITS, INVALID_FORMAT;
+        INVALID_CHECK_DIGITS, INVALID_DIGITS, INVALID_FORMAT
     }
 }
