@@ -31,7 +31,7 @@ namespace nStella.Core
             numero = new LinkedList<int>();
             char[] digitos = trecho.ToCharArray();
             foreach (char digito in digitos)
-            {
+            {                
                 numero.AddFirst((int)char.GetNumericValue(digito));
             }
 

@@ -15,7 +15,7 @@ namespace nStella.Core
 
             for (int i = 0; i < quantidade; i++)
             {
-                digitos.Append(RANDOM.Next());
+                digitos.Append(RANDOM.Next(10));
 
             }
             return digitos.ToString();

@@ -9,7 +9,7 @@ namespace nStella.Core.Validation
     public class CNPJValidator : IValidator<string>
     {
         public static readonly Regex FORMATED = new Regex("(\\d{2})[.](\\d{3})[.](\\d{3})/(\\d{4})-(\\d{2})");
-        public static readonly Regex UNFORMATED = new Regex("(\\d{2})(\\d{3})(\\d{3})(\\d{4})(\\d{2})");
+        public static readonly Regex UNFORMATED = new Regex("(\\d{2})(\\d{3})(\\d{3})(\\d{4})(\\d{2})", RegexOptions.Compiled);
 
         private bool isFormatted = false;
         private IMessageProducer messageProducer;
@@ -59,7 +59,7 @@ namespace nStella.Core.Validation
                     return errors;
                 }
 
-                var regxUnFormatedCNPJ = new Regex("[0 - 9]*");
+                var regxUnFormatedCNPJ = new Regex("[0-9]*");
 
                 if (unformatedCNPJ.Length != 14 || !regxUnFormatedCNPJ.IsMatch(unformatedCNPJ))
                 {
@@ -97,8 +97,7 @@ namespace nStella.Core.Validation
             IList<IValidationMessage> errors = GetInvalidValues(cnpj);
             if (!(errors.Count == 0))
                 throw new InvalidStateException(errors);
-        }
-
+        }     
         public string GenerateRandomValid()
         {
             string cnpjSemDigito = new DigitoGenerator().Generate(12);

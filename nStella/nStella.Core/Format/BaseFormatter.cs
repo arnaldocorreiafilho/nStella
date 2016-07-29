@@ -44,7 +44,7 @@ namespace nStella.Core.Format
             }
 
             Match unformattedMatcher = unformatted.Match(value);
-            if (unformattedMatcher.Success)
+            if (unformattedMatcher.Success && value == unformattedMatcher.Value)
             {
                 return value;
             }
