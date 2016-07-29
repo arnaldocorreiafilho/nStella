@@ -29,9 +29,8 @@ namespace nStella.Core
             string simpleName = error.GetType().Name;
             string errorName = error.Name();
             string key = simpleName + "." + errorName;
-            string message;
-            Regex regx = new Regex("");
-            message = regx.Replace(key, "[.]", 1).Replace("_", " ").ToString();
+            string message;            
+            message = key.Replace("."," : ").Replace("_", " ").ToString();
 
             return new SimpleValidationMessage(message);
         }
