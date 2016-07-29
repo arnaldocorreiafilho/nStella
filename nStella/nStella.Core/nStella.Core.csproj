@@ -44,6 +44,7 @@
     <Compile Include="DigitoPara.cs" />
     <Compile Include="Format\BaseFormatter.cs" />
     <Compile Include="Format\CEPFormatter.cs" />
+    <Compile Include="Format\CNPJFormatter.cs" />
     <Compile Include="Format\IFormatter.cs" />
     <Compile Include="IMessageProducer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -51,6 +52,8 @@
     <Compile Include="ResourceBundleMessageProducer.cs" />
     <Compile Include="SimpleMessageProducer.cs" />
     <Compile Include="SimpleValidationMessage.cs" />
+    <Compile Include="Validation\CNPJValidator.cs" />
+    <Compile Include="Validation\Error\CNPJError.cs" />
     <Compile Include="Validation\IInvalidValue.cs" />
     <Compile Include="Validation\IValidator.cs" />
   </ItemGroup>
