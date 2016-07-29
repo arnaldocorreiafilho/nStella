@@ -15,6 +15,6 @@ namespace nStella.Core.Format
         string Format(string value);
         string UnFormat(string value);
         bool IsFormatted(string value);
-        bool CanBeFormatted(string value);
+        bool CanBeFormatted(string value);        
     }
 }
