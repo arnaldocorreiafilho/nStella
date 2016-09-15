@@ -250,7 +250,7 @@ namespace nStella.Core.Tests.Validation
         }
 
         [TestMethod]
-        public void shouldGenerateValidFormattedCPF()
+        public void ShouldGenerateValidFormattedCPF()
         {
             CPFValidator cpfValidator = new CPFValidator(true);
             string generated = cpfValidator.GenerateRandomValid();

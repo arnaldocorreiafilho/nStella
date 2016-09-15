@@ -66,7 +66,7 @@ namespace nStella.Core.Validation
                 }
 
                 var cpfRegex = new Regex("[0-9]*");
-                if (unformatedCpf.Length != 11 || cpfRegex.IsMatch("[0-9]*"))
+                if (unformatedCpf.Length != 11 || !cpfRegex.IsMatch("[0-9]*"))
                     errors.Add(messageProducer.GetMessage(new CPFError(CPFErrorEnum.INVALID_DIGITS)));
 
                 if ((!isIgnoringRepeatedDigits) && hasAllRepeatedDigits(unformatedCpf))
@@ -77,7 +77,7 @@ namespace nStella.Core.Validation
 
                 string digitosCalculados = calculaDigitos(cpfSemDigito);
 
-                if (digitos.Equals(digitosCalculados))
+                if (!digitos.Equals(digitosCalculados))
                     errors.Add(messageProducer.GetMessage(new CPFError(CPFErrorEnum.INVALID_CHECK_DIGITS)));
 
             }
