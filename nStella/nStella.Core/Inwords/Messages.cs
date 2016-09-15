@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Reflection;
 using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace nStella.Core.Inwords
 {
-    public class Messages
+    sealed class Messages
     {
         private static readonly string BUNDLE_NAME = "nStella.Inwords.Messages";
-        static readonly CultureInfo LOCALE_PT_BR = new CultureInfo("pt-BR");
+        public static readonly CultureInfo LOCALE_PT_BR = new CultureInfo("pt-BR");
         private static readonly IDictionary<string, ResourceManager> RESOURCE_BUNDLES;
 
         static Messages()
@@ -25,12 +22,12 @@ namespace nStella.Core.Inwords
         {
         }
 
-        static string GetString(string key)
+        public static string GetString(string key)
         {
             return RESOURCE_BUNDLES[key].GetString(key);
         }
 
-        static string GetString(string key, CultureInfo cultureInfo)
+        public static string GetString(string key, CultureInfo cultureInfo)
         {
             ResourceManager resourceManager = RESOURCE_BUNDLES[cultureInfo.Name];
 
