@@ -52,8 +52,12 @@
     <Compile Include="Format\RenavamFormatter.cs" />
     <Compile Include="Format\TituloEleitoralFormatter.cs" />
     <Compile Include="IMessageProducer.cs" />
+    <Compile Include="Inwords\FormatoDeDolar.cs" />
     <Compile Include="Inwords\FormatoDeInteiro.cs" />
+    <Compile Include="Inwords\FormatoDeMoeda.cs" />
+    <Compile Include="Inwords\FormatoDeReal.cs" />
     <Compile Include="Inwords\IFormatoDeExtenso.cs" />
+    <Compile Include="Inwords\Messages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IValidationMessage.cs" />
     <Compile Include="ResourceBundleMessageProducer.cs" />
