@@ -57,6 +57,7 @@
     <Compile Include="Formatter\CNPJFormatterTest.cs" />
     <Compile Include="Formatter\CPFFormatterTest.cs" />
     <Compile Include="Formatter\NITFormatterTest.cs" />
+    <Compile Include="Formatter\RenavamFormatterTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleMessageProducerTest.cs" />
     <Compile Include="Validation\CNPJValidatorTest.cs" />
