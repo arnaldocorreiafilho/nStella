@@ -60,6 +60,7 @@
     <Compile Include="Validation\BaseValidator.cs" />
     <Compile Include="Validation\CNPJValidator.cs" />
     <Compile Include="Validation\CPFValidator.cs" />
+    <Compile Include="Validation\Error\LengthError.cs" />
     <Compile Include="Validation\Error\TituloEleitoralError.cs" />
     <Compile Include="Validation\Error\RenavamError.cs" />
     <Compile Include="Validation\Error\CPFError.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Validation\IInvalidValue.cs" />
     <Compile Include="Validation\InvalidStateException.cs" />
     <Compile Include="Validation\IValidator.cs" />
+    <Compile Include="Validation\LengthValidator.cs" />
     <Compile Include="Validation\NITValidator.cs" />
     <Compile Include="Validation\RenavamValidator.cs" />
     <Compile Include="Validation\TituloEleitoralValidator.cs" />
