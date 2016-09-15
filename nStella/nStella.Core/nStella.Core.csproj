@@ -48,6 +48,7 @@
     <Compile Include="Format\CPFFormatter.cs" />
     <Compile Include="Format\IFormatter.cs" />
     <Compile Include="Format\NITFormatter.cs" />
+    <Compile Include="Format\RenavamFormatter.cs" />
     <Compile Include="IMessageProducer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IValidationMessage.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="SimpleValidationMessage.cs" />
     <Compile Include="Validation\CNPJValidator.cs" />
     <Compile Include="Validation\CPFValidator.cs" />
+    <Compile Include="Validation\Error\RenavamError.cs" />
     <Compile Include="Validation\Error\CPFError.cs" />
     <Compile Include="Validation\Error\CNPJError.cs" />
     <Compile Include="Validation\Error\NITError.cs" />
@@ -63,6 +65,7 @@
     <Compile Include="Validation\InvalidStateException.cs" />
     <Compile Include="Validation\IValidator.cs" />
     <Compile Include="Validation\NITValidator.cs" />
+    <Compile Include="Validation\RenavamValidator.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
