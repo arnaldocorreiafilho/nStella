@@ -60,8 +60,8 @@ namespace nStella.Core.Validation
 
             if (isFormatted)
                 isEligible = RenavamFormatter.FORMATED.IsMatch(renavam);
-            else
-                isEligible = RenavamFormatter.UNFORMATED.IsMatch(renavam);
+            else                            
+                isEligible = RenavamFormatter.UNFORMATED.IsMatch(renavam);            
 
             return isEligible;
         }

@@ -62,6 +62,7 @@
     <Compile Include="Validation\CNPJValidatorTest.cs" />
     <Compile Include="Validation\CPFValidatorTest.cs" />
     <Compile Include="Validation\NITValidatorTest.cs" />
+    <Compile Include="Validation\RenavamValidatorTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\nStella.Core\nStella.Core.csproj">

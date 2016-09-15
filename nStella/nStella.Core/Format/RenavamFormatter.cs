@@ -5,7 +5,7 @@ namespace nStella.Core.Format
     public class RenavamFormatter : IFormatter
     {
         public static readonly Regex FORMATED = new Regex("(\\d{2,4}).(\\d{6})-(\\d{1})");
-        public static readonly Regex UNFORMATED = new Regex("(\\d{2,4})(\\d{6})(\\d{1})");
+        public static readonly Regex UNFORMATED = new Regex("(^\\d{2,4})(\\d{6})(\\d{1}$)");
 
         private readonly BaseFormatter formatter;
 
