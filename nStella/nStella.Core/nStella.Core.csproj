@@ -47,6 +47,7 @@
     <Compile Include="Format\CNPJFormatter.cs" />
     <Compile Include="Format\CPFFormatter.cs" />
     <Compile Include="Format\IFormatter.cs" />
+    <Compile Include="Format\LeftSideZerosFormatter.cs" />
     <Compile Include="Format\NITFormatter.cs" />
     <Compile Include="Format\RenavamFormatter.cs" />
     <Compile Include="Format\TituloEleitoralFormatter.cs" />
