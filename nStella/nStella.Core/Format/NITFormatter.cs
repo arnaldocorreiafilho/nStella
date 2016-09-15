@@ -12,7 +12,7 @@ namespace nStella.Core.Format
         private readonly BaseFormatter baseFormatter;
         public NITFormatter()
         {
-            baseFormatter = new BaseFormatter(NITValidator.FORMATED, "$1.$2.$3 -$4", NITValidator.UNFORMATED, "$1$2$3$4");
+            baseFormatter = new BaseFormatter(NITValidator.FORMATED, "$1.$2.$3-$4", NITValidator.UNFORMATED, "$1$2$3$4");
         }
 
         public bool CanBeFormatted(string value)

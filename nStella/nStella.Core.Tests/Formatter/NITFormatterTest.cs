@@ -15,14 +15,14 @@ namespace nStella.Core.Tests.Formatter
         }
 
         [TestMethod]
-        public void testFormat()
+        public void TestFormat()
         {
             string unfotmatedValue = "17033259504";
             string formatedValue = formatter.Format(unfotmatedValue);
             Assert.AreEqual(formatedValue, "170.33259.50-4");
         }
         [TestMethod]
-        public void testUnformat()
+        public void TestUnformat()
         {
             string fotmatedValue = "170.33259.50-4";
             string unformatedValue = formatter.UnFormat(fotmatedValue);
