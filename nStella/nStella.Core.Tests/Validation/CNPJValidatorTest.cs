@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace nStella.Core.Tests.Validation
 {
     [TestClass]
-    public class CNPJValidationTest
+    public class CNPJValidatorTest
     {
         private static readonly string INVALID_FORMAT = "INVALID FORMAT";
 

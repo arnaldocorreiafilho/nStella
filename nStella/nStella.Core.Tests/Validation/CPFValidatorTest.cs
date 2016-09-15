@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace nStella.Core.Tests.Validation
 {
     [TestClass]
-    public class CPFValidationTest
+    public class CPFValidatorTest
     {
         private static readonly string INVALID_FORMAT = "INVALID FORMAT";
         private static readonly string REPEATED_DIGITS = "REPEATED DIGITS";

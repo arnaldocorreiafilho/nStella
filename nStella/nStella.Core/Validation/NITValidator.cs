@@ -37,7 +37,7 @@ namespace nStella.Core.Validation
             IList<IValidationMessage> errors = new List<IValidationMessage>();
             if (!string.IsNullOrEmpty(nit))
             {
-                if (isFormatted && FORMATED.IsMatch(nit))
+                if (isFormatted && !FORMATED.IsMatch(nit))
                     errors.Add(messageProducer.GetMessage(new NITError(NITErrorEnum.INVALID_FORMAT)));
 
                 string unformatedNIT = string.Empty;
