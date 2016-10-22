@@ -316,15 +316,15 @@
     <value>novecentos</value>
   </data>
   <data name="Extensosep" xml:space="preserve">
-    <value>\ \e\ </value>
+    <value> e </value>
   </data>
   <data name="Extensosepdezena" xml:space="preserve">
-    <value>\ \e\ </value>
+    <value> e </value>
   </data>
   <data name="Extensosepformato" xml:space="preserve">
-    <value>\de\ </value>
+    <value>de </value>
   </data>
   <data name="Extensosepmil" xml:space="preserve">
-    <value>\,\ </value>
+    <value>, </value>
   </data>
 </root>

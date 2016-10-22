@@ -655,7 +655,7 @@ namespace nStella.Core.Inwords.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to \ \e\ .
+        ///   Looks up a localized string similar to  e .
         /// </summary>
         internal static string Extensosep {
             get {
@@ -664,7 +664,7 @@ namespace nStella.Core.Inwords.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to \ \e\ .
+        ///   Looks up a localized string similar to  e .
         /// </summary>
         internal static string Extensosepdezena {
             get {
@@ -673,7 +673,7 @@ namespace nStella.Core.Inwords.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to \de\ .
+        ///   Looks up a localized string similar to de .
         /// </summary>
         internal static string Extensosepformato {
             get {
@@ -682,7 +682,7 @@ namespace nStella.Core.Inwords.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to \,\ .
+        ///   Looks up a localized string similar to , .
         /// </summary>
         internal static string Extensosepmil {
             get {

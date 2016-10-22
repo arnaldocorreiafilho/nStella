@@ -62,11 +62,7 @@ namespace nStella.Core.Inwords
                 throw new ArgumentException("Número muito grande para ser transformado em extenso.");
             }
         }
-        /// <summary>
-        /// Incompleto.
-        /// </summary>
-        /// <param name="number"></param>
-        /// <returns></returns>
+               
         public string ToWords(double number)
         {
             try
