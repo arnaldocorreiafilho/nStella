@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace nStella.Core.Tinytype
 {
-    public class CEP
+    public sealed class CEP
     {
         private string numero;
         private string numeroFormatado;
