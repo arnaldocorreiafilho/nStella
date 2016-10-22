@@ -78,7 +78,6 @@ namespace nStella.Core.Inwords
                 }
                 else
                 {
-
                     string[] parts = Split(number);
                     string formattedInt = parts[0];
                     string[] ints = formattedInt.Split(',');

@@ -40,7 +40,12 @@ namespace nStella.Core.Inwords
                 throw new NotSupportedException("Não é possivel converter números para o idioma " + cultureInfo.DisplayName);
             }
 
-            return resourceManager.GetString(key, cultureInfo);
+            string result = resourceManager.GetString(key, cultureInfo);
+
+            if (result == null)
+                throw new MissingManifestResourceException();   
+                 
+            return result;
         }
     }
 }
