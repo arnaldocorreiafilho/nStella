@@ -75,6 +75,7 @@
     <Compile Include="ResourceBundleMessageProducer.cs" />
     <Compile Include="SimpleMessageProducer.cs" />
     <Compile Include="SimpleValidationMessage.cs" />
+    <Compile Include="Tinytype\CEP.cs" />
     <Compile Include="Validation\BaseValidator.cs" />
     <Compile Include="Validation\CNPJValidator.cs" />
     <Compile Include="Validation\CPFValidator.cs" />
