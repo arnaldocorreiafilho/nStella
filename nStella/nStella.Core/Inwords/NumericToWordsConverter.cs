@@ -127,7 +127,7 @@ namespace nStella.Core.Inwords
             symbols.NumberGroupSeparator = ",";
             symbols.NumberDecimalSeparator = ".";
 
-            double numberRounded = Math.Round(number, 2);
+            double numberRounded = Math.Round(number, 3);
 
             string formatted = numberRounded.ToString(pattern.ToString(), symbols);
 
