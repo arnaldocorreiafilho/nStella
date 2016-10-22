@@ -18,7 +18,6 @@ namespace nStella.Core.Inwords
             this.formato = formato;
             cultureInfo = Messages.LOCALE_PT_BR;
         }
-
         public NumericToWordsConverter(IFormatoDeExtenso formato,CultureInfo cultureInfo)
         {
             this.formato = formato;
@@ -84,44 +83,100 @@ namespace nStella.Core.Inwords
                 else
                 {
 
-                    String[] parts = split(number);
-                    String formattedInt = parts[0];
-                    String[] ints = formattedInt.split("[,]");
-                    ThousandBlock[] blocks = new ThousandBlock[ints.length];
-                    for (int i = 0; i < blocks.length; i++)
+                    string[] parts = Split(number);
+                    string formattedInt = parts[0];
+                    string[] ints = formattedInt.Split(',');
+                    ThousandBlock[] blocks = new ThousandBlock[ints.Length];
+                    for (int i = 0; i < blocks.Length; i++)
                     {
-                        String block = ints[i];
-                        blocks[i] = new ThousandBlock(block);
+                        string block = ints[i];
+                        blocks[i] = new ThousandBlock(this, block);
                     }
-                    String formattedMod = parts[1];
-                    ThousandBlock modBlock = new ThousandBlock(formattedMod);
+                    string formattedMod = parts[1];
+                    ThousandBlock modBlock = new ThousandBlock(this, formattedMod);
 
-                    boolean hasMod = !modBlock.isZero();
-                    boolean hasInteger = (blocks.length > 1) || (!blocks[blocks.length - 1].isZero());
+                    bool hasMod = !modBlock.IsZero();
+                    bool hasInteger = (blocks.Length > 1) || (!blocks[blocks.Length - 1].IsZero());
 
                     if (hasInteger)
                     {
-                        appendIntegers(result, blocks);
-                        appendIntegersUnits(number, result, blocks);
+                        AppendIntegers(result, blocks);
+                        AppendIntegersUnits(number, result, blocks);
                     }
                     if (hasInteger && hasMod)
                     {
-                        result.append(getAndSeparator());
+                        result.Append(GetAndSeparator());
                     }
                     if (hasMod)
                     {
-                        appendIntegers(result, modBlock);
-                        appendDecimalUnits(result, modBlock);
+                        AppendIntegers(result, modBlock);
+                        AppendDecimalUnits(result, modBlock);
                     }
                 }
-                return result.toString();
+                return result.ToString();
             }
-            catch (MissingResourceException e)
+            catch (MissingManifestResourceException)
             {
-                throw new IllegalArgumentException("Número muito grande para ser transformado em extenso.");
+                throw new ArgumentException("Número muito grande para ser transformado em extenso.");
             }
         }
 
+        private string[] Split(double number)
+        {
+            StringBuilder pattern = new StringBuilder();
+            pattern.Append("###,000.");
+            for (int i = 0; i < formato.GetCasasDecimais(); i++)
+                pattern.Append("0");
+
+            NumberFormatInfo symbols = new NumberFormatInfo();
+            symbols.NumberGroupSeparator = ",";
+            symbols.NumberDecimalSeparator = ".";
+
+            string formatted = Convert.ToDecimal(number).ToString(symbols);
+
+            return formatted.Split('.');
+        }
+
+        private void AppendDecimalUnits(StringBuilder result, ThousandBlock modBlock)
+        {
+            result.Append(" ");
+            if (modBlock.IsUnitary())
+            {
+                result.Append(formato.GetUnidadeDecimalNoSingular());
+            }
+            else
+            {
+                result.Append(formato.GetUnidadeDecimalNoPlural());
+            }
+        }
+        private void AppendIntegersUnits(double number, StringBuilder result, ThousandBlock[] blocks)
+        {
+            if (blocks.Length != 1 || !blocks[0].IsZero())
+            {
+                if (number >= 2)
+                {
+                    string unit = formato.GetUnidadeInteiraNoPlural();
+                    if (!string.IsNullOrEmpty(unit))
+                    {
+                        result.Append(" ");
+                        int length = blocks.Length;
+                        if (length > 2 && blocks[length - 1].IsZero() && blocks[length - 2].IsZero())
+                        {
+                            result.Append(GetFormatSeparator());
+                        }
+                        result.Append(unit);
+                    }
+                }
+                else
+                {
+                    string unit = formato.GetUnidadeInteiraNoSingular();
+                    if (!string.IsNullOrEmpty(unit))
+                    {
+                        result.Append(" ").Append(unit);
+                    }
+                }
+            }
+        }
         private void AppendIntegersUnits(long number, StringBuilder result, ThousandBlock[] blocks)
         {
             if (blocks.Length != 1 || !blocks[0].IsZero())
@@ -190,9 +245,11 @@ namespace nStella.Core.Inwords
             }
         }
 
-        private string GetNumber(int v)
-        {
-            throw new NotImplementedException();
+        private string GetNumber(int number)
+        {            
+            string formatted = number.ToString("000");
+
+            return Messages.GetString("Extenso" + formatted, cultureInfo);
         }
 
         private sealed class ThousandBlock
@@ -207,7 +264,7 @@ namespace nStella.Core.Inwords
                 numberValue = int.Parse(number);
 
                 this.NumericToWordsConverter = NumericToWordsConverter;
-            }
+            }            
 
             public bool IsZero()
             {

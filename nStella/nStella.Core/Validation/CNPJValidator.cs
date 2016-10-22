@@ -53,7 +53,7 @@ namespace nStella.Core.Validation
                 {
                     unformatedCNPJ = new CNPJFormatter().UnFormat(cnpj);
                 }
-                catch (ArgumentException e)
+                catch (ArgumentException)
                 {
                     errors.Add(messageProducer.GetMessage(new CNPJError(CNPJErrorEnum.INVALID_DIGITS)));
                     return errors;

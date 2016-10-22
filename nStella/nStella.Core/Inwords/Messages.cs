@@ -1,5 +1,7 @@
-﻿using System;
+﻿using nStella.Core.Inwords.Resources;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Reflection;
 using System.Resources;
@@ -8,15 +10,17 @@ namespace nStella.Core.Inwords
 {
     sealed class Messages
     {
-        private static readonly string BUNDLE_NAME = "nStella.Inwords.Messages";
+        private static readonly string BUNDLE_NAME = "nStella.Core.Inwords.Resources.Messages";
         public static readonly CultureInfo LOCALE_PT_BR = new CultureInfo("pt-BR");
         private static readonly IDictionary<string, ResourceManager> RESOURCE_BUNDLES;
 
         static Messages()
         {
-            Dictionary<string, ResourceManager> resourcesByLocale = new Dictionary<string, ResourceManager>(2);
-            resourcesByLocale.Add(LOCALE_PT_BR.Name, new ResourceManager(BUNDLE_NAME, Assembly.GetAssembly(typeof(Messages))));
-            resourcesByLocale.Add(CultureInfo.CreateSpecificCulture("en").Name, new ResourceManager(BUNDLE_NAME, Assembly.GetAssembly(typeof(Messages))));/
+            Dictionary<string, ResourceManager> resourcesByLocale = new Dictionary<string, ResourceManager>(2);            
+            resourcesByLocale.Add(LOCALE_PT_BR.Name, new ResourceManager(typeof(messages_pt_BR)));
+            resourcesByLocale.Add(CultureInfo.CreateSpecificCulture("en").Name, new ResourceManager(typeof(messages_en)));
+
+            RESOURCE_BUNDLES = new ReadOnlyDictionary<string, ResourceManager>(resourcesByLocale);
         }
         private Messages()
         {
@@ -36,7 +40,7 @@ namespace nStella.Core.Inwords
                 throw new NotSupportedException("Não é possivel converter números para o idioma " + cultureInfo.DisplayName);
             }
 
-            return resourceManager.GetString(key);
+            return resourceManager.GetString(key, cultureInfo);
         }
     }
 }

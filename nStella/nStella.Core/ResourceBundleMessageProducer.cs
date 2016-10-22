@@ -24,7 +24,7 @@ namespace nStella.Core
             {
                 message = bundle.GetString(key);
             }
-            catch (MissingManifestResourceException ex)
+            catch (MissingManifestResourceException)
             {
                 Regex regx = new Regex("");
                 message = regx.Replace(key, "[.]", 1).Replace("_", " ").ToString();
