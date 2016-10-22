@@ -132,7 +132,9 @@ namespace nStella.Core.Inwords
             symbols.NumberGroupSeparator = ",";
             symbols.NumberDecimalSeparator = ".";
 
-            string formatted = Convert.ToDecimal(number).ToString(symbols);
+            double numberRounded = Math.Round(number, 2);
+
+            string formatted = numberRounded.ToString(pattern.ToString(), symbols);
 
             return formatted.Split('.');
         }
@@ -208,7 +210,7 @@ namespace nStella.Core.Inwords
 
         private string GetFormatSeparator()
         {
-            return GetString("sep.formato");
+            return GetString("sepformato");
         }
 
         private void AppendIntegers(StringBuilder result, params ThousandBlock[] blocks)
@@ -237,7 +239,7 @@ namespace nStella.Core.Inwords
                     if (thousandPower > 0)
                     {
                         result.Append(" ");
-                        result.Append(GetString("1e" + 3 * thousandPower + "."
+                        result.Append(GetString("1e" + 3 * thousandPower
                             + (thousandBlock.IsUnitary() ? "singular" : "plural")));
                     }
                     hasStarted = true;
@@ -347,17 +349,17 @@ namespace nStella.Core.Inwords
         }
         private string GetTensSeparator()
         {
-            return GetString("sep.dezena");
+            return GetString("sepdezena");
         }
 
         private string GetString(string paramMessage)
         {
-            return Messages.GetString("Extenso." + paramMessage, cultureInfo);
+            return Messages.GetString("Extenso" + paramMessage, cultureInfo);
         }
 
         private string GetThousandSeparator()
         {
-            return GetString("sep.mil");
+            return GetString("sepmil");
         }
     }
 

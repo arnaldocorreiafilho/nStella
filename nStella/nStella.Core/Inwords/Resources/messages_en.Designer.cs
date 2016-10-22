@@ -655,7 +655,7 @@ namespace nStella.Core.Inwords.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to \ \and\ .
+        ///   Looks up a localized string similar to  and .
         /// </summary>
         internal static string Extensosep {
             get {
@@ -682,7 +682,7 @@ namespace nStella.Core.Inwords.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to \,\ .
+        ///   Looks up a localized string similar to , .
         /// </summary>
         internal static string Extensosepmil {
             get {

@@ -316,7 +316,7 @@
     <value>nine hundred</value>
   </data>
   <data name="Extensosep" xml:space="preserve">
-    <value>\ \and\ </value>
+    <value> and </value>
   </data>
   <data name="Extensosepdezena" xml:space="preserve">
     <value>-</value>
@@ -325,6 +325,6 @@
     <value />
   </data>
   <data name="Extensosepmil" xml:space="preserve">
-    <value>\,\ </value>
+    <value>, </value>
   </data>
 </root>
