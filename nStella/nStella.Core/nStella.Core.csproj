@@ -77,6 +77,7 @@
     <Compile Include="SimpleValidationMessage.cs" />
     <Compile Include="Tinytype\CEP.cs" />
     <Compile Include="Tinytype\CNPJ.cs" />
+    <Compile Include="Tinytype\CPF.cs" />
     <Compile Include="Validation\BaseValidator.cs" />
     <Compile Include="Validation\CNPJValidator.cs" />
     <Compile Include="Validation\CPFValidator.cs" />

@@ -3,33 +3,34 @@ using nStella.Core.Validation;
 
 namespace nStella.Core.Tinytype
 {
-    public sealed class CNPJ
+    public sealed class CPF
     {
+
         /**
-    * Número do CNPJ. Possui apenas os caracteres numéricos.
-    */
+         * Número do CPF. Possui apenas os caracteres numéricos.
+         */
         private readonly string numero;
 
         /**
-         * Número do CNPJ. No formato dd.ddd.ddd/dddd-dd .
+         * Número do CPF. No formato ddd.ddd.ddd-dd .
          */
-        private string numeroFormatado;
+        private readonly string numeroFormatado;
 
         /**
          * Constrói um CPF com o número especificado. Se o número contiver 
-         * apenas caracteres numéricos ou estiver no formato dd.ddd.ddd/dddd-dd,
+         * apenas caracteres numéricos ou estiver no formato ddd.ddd.ddd-dd, 
          * ele é guardado com e sem formatação nos respectivos atributos.
          * Caso contrário, ele guarda o parâmetro como passado em ambos os atributos.
          * 
-         * @param numero número do CPF.
+         * @param numero número do CPF
          */
-        public CNPJ(string numero)
+        public CPF(string numero)
         {
-            CNPJFormatter formatador = new CNPJFormatter();
+            CPFFormatter formatador = new CPFFormatter();
             if (formatador.IsFormatted(numero))
             {
                 this.numero = formatador.UnFormat(numero);
-                this.numeroFormatado = numero;
+                numeroFormatado = numero;
             }
             else if (formatador.CanBeFormatted(numero))
             {
@@ -38,14 +39,14 @@ namespace nStella.Core.Tinytype
             }
             else
             {
-                this.numero = this.numeroFormatado = numero;
+                this.numero = numeroFormatado = numero;
             }
         }
 
         /**
-         * Retorna o número do CNPJ apenas com os caracteres numéricos.
+         * Retorna o número do CPF apenas com os caracteres numéricos.
          * 
-         * @return número do CNPJ.
+         * @return número do CPF.
          */
         public string GetNumero()
         {
@@ -53,9 +54,9 @@ namespace nStella.Core.Tinytype
         }
 
         /**
-         * Retorna o número do CNPJ no formato dd.ddd.ddd/dddd-dd .
+         * Retorna o número do CPF no formato ddd.ddd.ddd-dd .
          * 
-         * @return número do CNPJ no formato dd.ddd.ddd/dddd-dd .
+         * @return número do CPF no formato ddd.ddd.ddd-dd .
          */
         public string GetNumeroFormatado()
         {
@@ -63,23 +64,23 @@ namespace nStella.Core.Tinytype
         }
 
         /**
-         * Retorna se o número do CNPJ é válido. O resultado é <code>true</code>
+         * Retorna se o número do CPF é válido. O resultado é <code>true</code>
          * se os dígitos verificadores estão de acordo com a regra de cálculo.
          * 
-         * @return se o número do CNPJ é valido.
+         * @return se o número do CPF é valido.
          * 
-         * @see CNPJValidator
+         * @see CPFValidator
          */
-        public bool IsValid()
+        public bool IsValido()
         {
-            return new CNPJValidator().InvalidMessageFor(numero).Count == 0;
+            return new CPFValidator().InvalidMessageFor(numero).Count == 0;
         }
 
         /**
-         * Retorna uma representação em string desse CNPJ. A intenção desse método
-         * é ser usado para impressão e retorna o número no formato dd.ddd.ddd/dddd-dd .
+         * Retorna uma representação em string desse CPF. A intenção desse método
+         * é ser usado para impressão e retorna o número no formato ddd.ddd.ddd-dd .
          * 
-         * @return número do CNPJ no formato dd.ddd.ddd/dddd-dd .
+         * @return número do CPF no formato ddd.ddd.ddd-dd.
          */
 
         public override string ToString()
@@ -88,7 +89,7 @@ namespace nStella.Core.Tinytype
         }
 
         /**
-         * Retorna um hash code para esse CPNJ.
+         * Retorna um hash code para esse CPF.
          * 
          * @return um valor de hash code para esse objeto.
          */
@@ -102,15 +103,14 @@ namespace nStella.Core.Tinytype
         }
 
         /**
-         * Compara esse <code>CNPJ</code> ao <code>Object</code> 
+         * Compara esse <code>CPF</code> ao <code>Object</code> 
          * especificado.  O resultado é <code>true</code> se e só se
-         * o argumento é um objeto <code>CNPJ</code> com o mesmo número.
+         * o argumento é um objeto <code>CPF</code> com o mesmo número.
          * 
          * @param obj o objeto a ser comparado
          * @return <code>true</code> se esse objeto é igual a <code>obj</code>;
          * <code>false</code> caso contrário.
          */
-
         public override bool Equals(object obj)
         {
             if (this == obj)
@@ -125,7 +125,7 @@ namespace nStella.Core.Tinytype
             {
                 return false;
             }
-            CNPJ other = (CNPJ)obj;
+            CPF other = (CPF)obj;
             if (numero == null)
             {
                 if (other.numero != null)
