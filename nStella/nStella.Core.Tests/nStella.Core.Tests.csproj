@@ -61,6 +61,7 @@
     <Compile Include="Inwords\DolarNumericToWordsConverterTest.cs" />
     <Compile Include="Inwords\FormatoDeMoedaTest.cs" />
     <Compile Include="Inwords\IntegerNumericToWordsConverterTest.cs" />
+    <Compile Include="Inwords\MultiLocaleNumericToWordsConverterTest.cs" />
     <Compile Include="Inwords\NoFormatNumericToEnglishWordsConverterTest.cs" />
     <Compile Include="Inwords\NoFormatNumericToWordsConverterTest.cs" />
     <Compile Include="Inwords\RealNumericToWordsConverterTest.cs" />
