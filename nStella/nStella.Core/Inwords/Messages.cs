@@ -8,7 +8,7 @@ using System.Resources;
 
 namespace nStella.Core.Inwords
 {
-    sealed class Messages
+    public sealed class Messages
     {
         private static readonly string BUNDLE_NAME = "nStella.Core.Inwords.Resources.Messages";
         public static readonly CultureInfo LOCALE_PT_BR = new CultureInfo("pt-BR");
