@@ -67,6 +67,7 @@
     <Compile Include="Inwords\RealNumericToWordsConverterTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleMessageProducerTest.cs" />
+    <Compile Include="Tinytype\CEPTest.cs" />
     <Compile Include="Validation\CNPJValidatorTest.cs" />
     <Compile Include="Validation\CPFValidatorTest.cs" />
     <Compile Include="Validation\NITValidatorTest.cs" />
