@@ -69,6 +69,7 @@
     <Compile Include="SimpleMessageProducerTest.cs" />
     <Compile Include="Tinytype\CEPTest.cs" />
     <Compile Include="Tinytype\CNPJTest.cs" />
+    <Compile Include="Tinytype\CPFTest.cs" />
     <Compile Include="Validation\CNPJValidatorTest.cs" />
     <Compile Include="Validation\CPFValidatorTest.cs" />
     <Compile Include="Validation\NITValidatorTest.cs" />
