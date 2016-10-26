@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace nStella.Core.Format
 {
@@ -18,8 +14,8 @@ namespace nStella.Core.Format
 
         public bool CanBeFormatted(string value)
         {
-            Regex regx = new Regex("\\d{" + formattedLength + "}");
-            return regx.IsMatch(value);
+            Match match = Regex.Match(value, "\\d{0," + formattedLength + "}");
+            return match.Success && match.Length == value.Length;            
         }
 
         public string Format(string value)
@@ -36,8 +32,8 @@ namespace nStella.Core.Format
 
         public bool IsFormatted(string value)
         {
-            Regex regx = new Regex("\\d{" + formattedLength + "}");
-            return regx.IsMatch(value);
+            Match match = Regex.Match(value, "\\d{" + formattedLength + "}");
+            return match.Success && match.Length == value.Length;            
         }
 
         public string UnFormat(string value)

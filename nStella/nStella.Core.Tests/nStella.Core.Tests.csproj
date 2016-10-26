@@ -58,6 +58,7 @@
     <Compile Include="Formatter\CPFFormatterTest.cs" />
     <Compile Include="Formatter\NITFormatterTest.cs" />
     <Compile Include="Formatter\RenavamFormatterTest.cs" />
+    <Compile Include="Format\LeftSideZerosFormatterTest.cs" />
     <Compile Include="Inwords\DolarNumericToWordsConverterTest.cs" />
     <Compile Include="Inwords\FormatoDeMoedaTest.cs" />
     <Compile Include="Inwords\IntegerNumericToWordsConverterTest.cs" />
