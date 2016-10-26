@@ -1,10 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using nStella.Core.Inwords;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace nStella.Core.Tests.Inwords
 {
@@ -78,7 +74,7 @@ namespace nStella.Core.Tests.Inwords
         }
 
         [TestMethod]
-    public void ShouldTransform14InWords()
+        public void ShouldTransform14InWords()
         {
             double fourteen = 14;
             string actual = converter.ToWords(fourteen);
@@ -246,7 +242,5 @@ namespace nStella.Core.Tests.Inwords
                     + "novecentos e noventa e nove milhões, " + "novecentos e noventa e nove mil e "
                     + "novecentos e noventa e nove reais", words);
         }
-
-
     }
 }
